@@ -50,7 +50,7 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 RUN yum install -y --setopt=tsflags=nodocs gtk3 kde-l10n-Chinese libXScrnSaver alsa-lib google-noto-sans-simplified-chinese-fonts && \
     last_version=$(curl -s "http://pan.baidu.com/disk/cmsdata?do=client"|grep -i -o "http:[0-9a-z/\\\.\_]*\.rpm"|sed 's/\\//g') && \
-    wget ${last_version} -O /tmp/baidunetdisk_linux.rpm && \
+    wget http://wppkg.baidupcs.com/issue/netdisk/LinuxGuanjia/3.0.1/baidunetdisk_linux_3.0.1.2.rpm -O /tmp/baidunetdisk_linux.rpm && \
     rpm -ivh /tmp/baidunetdisk_linux.rpm && \
     yum clean all && rm -rf /var/cache/yum/* && \
     localedef -c -f UTF-8 -i zh_CN zh_CN.utf8
